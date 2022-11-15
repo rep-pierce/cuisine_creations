@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cuisine_creations/static/css/main.073c9b0a.css",
+    "main.js": "/cuisine_creations/static/js/main.92937fb0.js",
+    "static/js/787.b108f0ee.chunk.js": "/cuisine_creations/static/js/787.b108f0ee.chunk.js",
+    "static/media/logo.svg": "/cuisine_creations/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/cuisine_creations/index.html",
+    "main.073c9b0a.css.map": "/cuisine_creations/static/css/main.073c9b0a.css.map",
+    "main.92937fb0.js.map": "/cuisine_creations/static/js/main.92937fb0.js.map",
+    "787.b108f0ee.chunk.js.map": "/cuisine_creations/static/js/787.b108f0ee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.92937fb0.js"
+  ]
+}
