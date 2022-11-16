@@ -5,9 +5,15 @@ class Recipe < ActiveRecord::Base
     has_many :users, through: :lists
     has_many :ratings
     has_many :users, through: :ratings
+    has_many :steps
 
     def recipe_ingredients
         self.joinirs.map(&:list_ingredients)
     end
+
+    def get_rating
+        self.ratings.average(:rate).to_f
+    end
+
 
 end

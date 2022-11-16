@@ -12,6 +12,10 @@ class ApplicationController < Sinatra::Base
       recipe.to_json(include: :steps)
     end
 
+    # get '/recipes/by_rating' do
+      
+    # end
+
     post '/recipes' do
       recipe = Recipe.create(name:params[:name], user:params[:user])
       # joinir = Joinir.create(recipe: recipe.id, ingredient:)
@@ -62,6 +66,16 @@ class ApplicationController < Sinatra::Base
       ingredient = Ingredient.find(params[:id])
       ingredient.destroy
       ingredient.to_json
+    end
+
+    get '/recipes/:id/rating' do
+      recipe_rating = Recipe.find(params[:id]).get_rating
+      recipe_rating.to_json
+    end
+
+    get '/recipes/:id/ingredients' do
+      recipe_ingredients = Recipe.find(params[:id]).recipe_ingredients
+      recipe_ingredients.to_json
     end
     
   end
