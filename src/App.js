@@ -7,10 +7,21 @@ import Recipepage from "./components/Recipepage";
 import './App.css';
 
 function App() {
+  const [recipes, setRecipes] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/recipes')
+      .then(r => r.json())
+      .then(setRecipes)
+  }, [])
+
   return (
     <div className="App">
       <Routes>
-        <Route exact path = "/" element={<HomePage />}/>
+        <Route exact path = "/" 
+        element={<HomePage
+        recipes={recipes}
+        />}/>
         <Route exact path = "/login" element={<LoginPage />}/>
         <Route exact path = "/recipe" element={<Recipepage />}/>
         <Route exact path = "/list" element={<ListPage />}/>

@@ -1,8 +1,12 @@
 import React from "react";
 
-function IngredientCard(){
-    return(<div>
+function IngredientCard({ingredient}){
 
+    return(
+    <div>
+        <p>{ingredient.name}</p>
+        <p>calories</p>
+        <p>{ingredient.calories}</p>
     </div>
     )
 

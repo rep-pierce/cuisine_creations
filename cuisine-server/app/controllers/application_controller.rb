@@ -74,7 +74,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/recipes/:id/ingredients' do
-      recipe_ingredients = Recipe.find(params[:id]).recipe_ingredients
+      recipe_ingredients = Recipe.find(params[:id]).joinirs.map {|joinir| joinir.ingredient}
       recipe_ingredients.to_json
     end
     
