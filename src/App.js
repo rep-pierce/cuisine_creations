@@ -7,6 +7,12 @@ import Recipepage from "./components/Recipepage";
 import './App.css';
 
 function App() {
+  const [search, setSearch] = useState('')
+  const [filterState, setFilterState] = useState('None')
+  
+
+
+  
   return (
     <div className="App">
       <Routes>
