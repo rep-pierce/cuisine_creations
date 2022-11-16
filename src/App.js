@@ -3,6 +3,7 @@ import {Routes, Route} from "react-router-dom";
 import HomePage from "./components/Homepage";
 import LoginPage from "./components/Loginpage";
 import ListPage from "./components/Listpage";
+import Recipepage from "./components/Recipepage";
 
 
 import './App.css';
