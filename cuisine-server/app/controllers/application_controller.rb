@@ -1,5 +1,6 @@
 class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
+
     
     get '/recipes' do
       recipes = Recipe.all
@@ -13,7 +14,7 @@ class ApplicationController < Sinatra::Base
 
     post '/recipes' do
       recipe = Recipe.create(name:params[:name], user:params[:user])
-      joinir = Joinir.create(recipe: recipe.id, ingredient:)
+      # joinir = Joinir.create(recipe: recipe.id, ingredient:)
     end
 
     delete '/recipes/:id' do
