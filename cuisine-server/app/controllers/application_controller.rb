@@ -3,8 +3,6 @@ class ApplicationController < Sinatra::Base
     
     get '/recipes' do
       recipes = Recipe.all
-      recipes.to_json
-    end
 
     get '/recipes/:id' do
       recipe = Recipe.find(params[:id])
