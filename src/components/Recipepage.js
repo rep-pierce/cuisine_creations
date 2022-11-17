@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import RecipeCard from './Recipecard';
 import StepsCard from './Stepscard';
+import Rating from './Rating'
 
 function Recipepage ({sRecipe}) {
     const [steps, setSteps] = useState([])
@@ -17,6 +18,7 @@ function Recipepage ({sRecipe}) {
     <div>
         <RecipeCard name={sRecipe.name} id={sRecipe.id} />
         {createSteps()}
+        <Rating />
 
 
     </div>

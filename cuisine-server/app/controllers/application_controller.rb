@@ -104,6 +104,12 @@ class ApplicationController < Sinatra::Base
       steps.to_json
     end
 
+    post '/ratings' do
+      rating = Rating.create(rate:params[:rate], recipe:params[:recipe], user:params[:user])
+    end
+
+
+
     
     
   end
