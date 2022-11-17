@@ -11,13 +11,18 @@ function App() {
   const [filterState, setFilterState] = useState('None')  
   const [recipes, setRecipes] = useState([])
   const [user, setUser] = useState({})
-
+  const [usersname, setUsersname] = useState('')
+  const [age, setAge] = useState(0)
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [users, setUsers] = useState([])
+  const [loggedin, setLoggedin] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:9292/users/1')
-      .then(r => r.json())
-      .then(setUser)
-  }, [])
+    fetch("http://localhost:9292/users")
+            .then(r => r.json())
+            .then(setUsers)
+  }, [])  
 
   useEffect(() => {
     fetch('http://localhost:9292/recipes')
@@ -31,9 +36,30 @@ function App() {
         <Route exact path = "/" 
         element={<HomePage
         recipes={recipes}
+        loggedin={loggedin}
+        setLoggedin={setLoggedin}
+        setUser={setUser}
         />}/>
-        <Route exact path = "/login" element={<LoginPage />}/>
+
+        <Route exact path = "/login" 
+        element={<LoginPage 
+        setUser={setUser}
+        setUsersname={setUsersname}
+        usersname={usersname}
+        password={password}
+        setPassword={setPassword}
+        setAge={setAge}
+        age={age}
+        setUsername={setUsername}
+        username={username}
+        users={users}
+        loggedin={loggedin}
+        setLoggedin={setLoggedin}
+        setUsers={setUsers}
+        />}/>
+
         <Route exact path = "/recipe" element={<Recipepage />}/>
+        
         <Route exact path = "/list" 
         element={<ListPage 
         user={user}

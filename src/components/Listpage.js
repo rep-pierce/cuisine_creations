@@ -18,14 +18,14 @@ function ListPage({user}){
         return list.map(recipe => <RecipeCard key={recipe.id} name={recipe.name} id={recipe.id} /> )
     }
 
-    function handleClick(){
+    function handleHome(){
         navigate('/')
     }
 
     return(
     <div>
         {createRecipeCards()}
-        <button onClick={handleClick}>Return to All Recipes</button>
+        <button onClick={handleHome}>Return to All Recipes</button>
     </div>
     )
 

@@ -2,21 +2,31 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeCard from "./Recipecard"
 
-function HomePage({recipes}){
-
+function HomePage({recipes, loggedin, setLoggedin, setUser}){
     const navigate = useNavigate()
+
+
+
     function createRecipeCards() {
         return recipes.map(recipe => <RecipeCard key={recipe.id} name={recipe.name} id={recipe.id} /> )
     }
 
-    function handleClick() {
+    function handleList() {
         navigate('/list')
+    }
+    function loginNav() {
+        navigate('/login')
+    }
+    function logOut(){
+        setLoggedin(false)
+        setUser({})
     }
     
     return(
     <div>
+        {loggedin ? <button onClick={logOut}>Log Out</button> : <button onClick={loginNav}>Log In</button>}
         {createRecipeCards()}
-        <button onClick={handleClick}>Click To See List</button>
+        <button onClick={handleList}>Click To See List</button>
     </div>
     )
 
