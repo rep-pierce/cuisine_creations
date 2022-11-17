@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-function UserCard ({user, password, setPassword, setLoggedin, setUser}) {
+function UserCard ({user, password, setPassword, setLoggedin, setUser, users, setUsers}) {
     
 
     function handleSubmit(e) {
@@ -21,9 +21,11 @@ function UserCard ({user, password, setPassword, setLoggedin, setUser}) {
         fetch(`http://localhost:9292/users/${user.id}`,{
             method: "DELETE",
         })
+        .then((r)=> r.json())
+        .then((deletedUser)=> setUsers(users.filter(user => user.id !== deletedUser.id)))
         setLoggedin(false)
         setUser({})
-        window.location.href=window.location.href
+        // window.location.href=window.location.href
     
         
     }

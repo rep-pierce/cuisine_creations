@@ -83,6 +83,8 @@ function App() {
         setPassword={setPassword}
         sRecipe={sRecipe}
         setsRecipe={setsRecipe}
+        users={users}
+        setUsers={setUsers}
         />}/>
 
         <Route exact path = "/login" 

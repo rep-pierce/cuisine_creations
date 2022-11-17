@@ -2,6 +2,7 @@ import React,  {useState, useEffect} from 'react';
 import IngredientCard from './Ingredientcard';
 import { useNavigate } from "react-router-dom";
 
+
 function RecipeCard ({name, id, setsRecipe, recipe}) {
     const [rating, setRating] = useState(0)
     const [ingredients, setIngredients] = useState([])
