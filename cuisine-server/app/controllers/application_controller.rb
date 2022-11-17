@@ -77,5 +77,15 @@ class ApplicationController < Sinatra::Base
       recipe_ingredients = Recipe.find(params[:id]).joinirs.map {|joinir| joinir.ingredient}
       recipe_ingredients.to_json
     end
+
+    get '/users/:id/list' do
+      user_list = User.find(params[:id]).lists.map {|list| list.recipe}
+      user_list.to_json
+    end
+
+    get '/by_rating' do
+      sort = Recipe.by_rating
+      sort.to_json
+    end
     
   end

@@ -15,5 +15,8 @@ class Recipe < ActiveRecord::Base
         self.ratings.average(:rate).to_f
     end
 
+    def self.by_rating
+        self.joins(:ratings).group(:recipe_id).order("AVG(rate) DESC")
+    end
 
 end

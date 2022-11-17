@@ -8,12 +8,16 @@ import './App.css';
 
 function App() {
   const [search, setSearch] = useState('')
-  const [filterState, setFilterState] = useState('None')
-  
-
-
-  
+  const [filterState, setFilterState] = useState('None')  
   const [recipes, setRecipes] = useState([])
+  const [user, setUser] = useState({})
+
+
+  useEffect(() => {
+    fetch('http://localhost:9292/users/1')
+      .then(r => r.json())
+      .then(setUser)
+  }, [])
 
   useEffect(() => {
     fetch('http://localhost:9292/recipes')
@@ -30,7 +34,10 @@ function App() {
         />}/>
         <Route exact path = "/login" element={<LoginPage />}/>
         <Route exact path = "/recipe" element={<Recipepage />}/>
-        <Route exact path = "/list" element={<ListPage />}/>
+        <Route exact path = "/list" 
+        element={<ListPage 
+        user={user}
+        />}/>
       </Routes>
     </div>
   );
