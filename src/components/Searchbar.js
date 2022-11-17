@@ -6,7 +6,7 @@ function SearchBar ({search, setSearch, filterState, setFilterState}) {
     <div className = "searchContainer">
         <label>
             <strong className = "filterText">Filter By:</strong>
-            <select onChange={(e)=> setFilterState(e.target.value)} value={filterState} className="filter">
+            <select onChange={(e)=> setFilterState(e.target.value)  } value={filterState} className="filter">
                 <option value="None">None</option>
                 <option value="Rating">Best Star Rating</option>
             </select>
