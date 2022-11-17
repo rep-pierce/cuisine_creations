@@ -83,6 +83,8 @@ function App() {
         setList={setList}
         setInList={setInList}
         inList={inList}
+        users={users}
+        setUsers={setUsers}
         />}/>
 
         <Route exact path = "/login" 

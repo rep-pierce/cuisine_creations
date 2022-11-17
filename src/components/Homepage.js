@@ -4,7 +4,7 @@ import RecipeCard from "./Recipecard"
 import SearchBar from "./Searchbar";
 import UserCard from "./Usercard";
 
-function HomePage({ inList, setInList, recipes, loggedin, setLoggedin, setUser, search, setSearch, filterState, setFilterState, user, password, setPassword,  setsRecipe, list, setList }){
+function HomePage({ inList, setInList, recipes, loggedin, setLoggedin, setUser, search, setSearch, filterState, setFilterState, user, password, setPassword,  setsRecipe, list, setList, users, setUsers }){
     const navigate = useNavigate()
 
 
@@ -31,7 +31,7 @@ function HomePage({ inList, setInList, recipes, loggedin, setLoggedin, setUser, 
         <SearchBar search={search} setSearch={setSearch} filterState={filterState} setFilterState={setFilterState} />
         {createRecipeCards()}
         <button onClick={handleList}>Click To See List</button>
-        {loggedin ? <UserCard user={user} password={password} setPassword={setPassword} setLoggedin={setLoggedin} setUser={setUser}/> : null}
+        {loggedin ? <UserCard user={user} password={password} setPassword={setPassword} setLoggedin={setLoggedin} setUser={setUser} users={users} setUsers={setUsers}/> : null}
     </div>
     )
 
