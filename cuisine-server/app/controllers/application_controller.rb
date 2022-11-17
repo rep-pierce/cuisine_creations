@@ -1,3 +1,4 @@
+require 'pry'
 class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
 
@@ -83,9 +84,21 @@ class ApplicationController < Sinatra::Base
       user_list.to_json
     end
 
-    get '/by_rating' do
-      sort = Recipe.by_rating
-      sort.to_json
+   
+
+    get '/byrating' do
+      ayo = Recipe.by_rating
+      ayo.to_json
     end
+   
+    patch '/users/:id' do
+      user = User.find(params[:id])
+      user.update(
+        password: params[:password]
+      )
+      user.to_json
+    end 
+
+    
     
   end

@@ -23,19 +23,57 @@ function App() {
             .then(r => r.json())
             .then(setUsers)
   }, [])  
+  const [rateRecipes, setRateRecipes] = useState([])
+  const [ifRecipes, setIfRecipes] = useState([])
+
+  
+  
 
   useEffect(() => {
     fetch('http://localhost:9292/recipes')
       .then(r => r.json())
       .then(setRecipes)
   }, [])
+  useEffect(() => {
+    fetch('http://localhost:9292/byrating')
+      .then(r => r.json())
+      .then(setRateRecipes)
+  }, [])
+
+    const filteringRecipes = recipes.filter((recipe)=> {
+      return recipe.name.toLowerCase().includes(search.toLowerCase())
+   })
+
+   const filteringRateRecipes = rateRecipes.filter((recipe)=> {
+    return recipe.name.toLowerCase().includes(search.toLowerCase())
+ })
+
+   function filteredRecipes() {
+    if (filterState === "None") {
+      return filteringRecipes
+    }
+    else {
+      return filteringRateRecipes
+    }
+  };
+
+ 
+  
+    
+
+  
+  
 
   return (
     <div className="App">
       <Routes>
         <Route exact path = "/" 
         element={<HomePage
-        recipes={recipes}
+        recipes={filteredRecipes()}
+        search={search}
+        setSearch={setSearch}
+        filterState={filterState}
+        setFilterState={setFilterState}
         loggedin={loggedin}
         setLoggedin={setLoggedin}
         setUser={setUser}
@@ -56,6 +94,8 @@ function App() {
         loggedin={loggedin}
         setLoggedin={setLoggedin}
         setUsers={setUsers}
+        
+        
         />}/>
 
         <Route exact path = "/recipe" element={<Recipepage />}/>
