@@ -105,9 +105,34 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/ratings' do
-      rating = Rating.create(rate:params[:rate], recipe:params[:recipe], user:params[:user])
+      rating = Rating.create(rate:params[:rate], recipe_id:params[:recipe], user_id:params[:user])
     end
 
+    get '/ratings' do
+      ratings = Rating.all
+      ratings.to_json
+    end
+
+    post '/lists' do
+      list = List.create(user_id:params[:user], recipe_id:params[:recipe])
+    end
+
+    get '/lists' do
+      lists = List.all
+      lists.to_json
+    end
+
+    delete '/lists/:id/:userID' do
+      list = List.where(recipe: params[:id]).where(user: params[:userID])
+      list.destroy_all
+      list.to_json
+    end
+
+    get '/lists/:id/:userID' do
+      list = List.where(recipe: params[:id]).where(user: params[:userID])
+      list.to_json
+    end
     
+
     
   end

@@ -18,6 +18,9 @@ function App() {
   const [users, setUsers] = useState([])
   const [loggedin, setLoggedin] = useState(false)
   const [sRecipe, setsRecipe] = useState([])
+  const [rate, setRate] = useState(1)
+  const [list, setList] = useState([])
+  const [inList, setInList] = useState(false)
 
   useEffect(() => {
     fetch("http://localhost:9292/users")
@@ -58,13 +61,6 @@ function App() {
     }
   };
 
- 
-  
-    
-
-  
-  
-
   return (
     <div className="App">
       <Routes>
@@ -83,6 +79,10 @@ function App() {
         setPassword={setPassword}
         sRecipe={sRecipe}
         setsRecipe={setsRecipe}
+        list={list}
+        setList={setList}
+        setInList={setInList}
+        inList={inList}
         />}/>
 
         <Route exact path = "/login" 
@@ -104,11 +104,22 @@ function App() {
         
         />}/>
 
-        <Route exact path = "/recipe" element={<Recipepage sRecipe={sRecipe} setsRecipe={setsRecipe} />}/>
+        <Route exact path = "/recipe" 
+        element={<Recipepage 
+        sRecipe={sRecipe} 
+        setsRecipe={setsRecipe}
+        user={user} 
+        rate={rate}
+        setRate={setRate}
+        />}/>
         
         <Route exact path = "/list" 
         element={<ListPage 
         user={user}
+        list={list}
+        setList={setList}
+        setInList={setInList}
+        inList={inList}
         />}/>
       </Routes>
     </div>

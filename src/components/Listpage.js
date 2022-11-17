@@ -4,8 +4,7 @@ import RecipeCard from "./Recipecard";
 import { useNavigate } from "react-router-dom";
 
 
-function ListPage({user}){
-    const [list, setList] = useState([])
+function ListPage({user, list, setList, inList, setInList }){
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -15,10 +14,11 @@ function ListPage({user}){
       }, [])
 
       function createRecipeCards() {
-        return list.map(recipe => <RecipeCard key={recipe.id} name={recipe.name} id={recipe.id} /> )
+        return list.map(recipe => <RecipeCard user={user} list={list} setList={setList} inList={inList} key={recipe.id} recipe={recipe} name={recipe.name} id={recipe.id} /> )
     }
 
     function handleHome(){
+        setInList(false)
         navigate('/')
     }
 
