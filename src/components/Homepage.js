@@ -2,8 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeCard from "./Recipecard"
 import SearchBar from "./Searchbar";
+import UserCard from "./Usercard";
 
-function HomePage({recipes, loggedin, setLoggedin, setUser, search, setSearch, filterState, setFilterState }){
+function HomePage({recipes, loggedin, setLoggedin, setUser, search, setSearch, filterState, setFilterState, user, password, setPassword }){
     const navigate = useNavigate()
 
 
@@ -29,6 +30,7 @@ function HomePage({recipes, loggedin, setLoggedin, setUser, search, setSearch, f
         <SearchBar search={search} setSearch={setSearch} filterState={filterState} setFilterState={setFilterState} />
         {createRecipeCards()}
         <button onClick={handleList}>Click To See List</button>
+        {loggedin ? <UserCard user={user} password={password} setPassword={setPassword}/> : null}
     </div>
     )
 

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
-function UserCard ({user}) {
-    const [password, setPassword] = useState('')
+function UserCard ({user, password, setPassword}) {
+    
 
     function handleSubmit(e) {
         e.preventDefualt()
@@ -24,15 +24,14 @@ function UserCard ({user}) {
         <p>Age:{user.age}</p>
         <p>Username:{user.username}</p>
         <form onSubmit={handleSubmit}>
-            <label>
-                <p>Change Password</p>
+            <label>Change Password</label>
                 <input
                 value = {password}
                 type ="text"
                 placeholder = "New Password"
                 onChange={(e)=> setPassword(e.target.value)}
                 />
-            </label>
+            
             <button type="submit">Submit</button>
         </form>
     </div>

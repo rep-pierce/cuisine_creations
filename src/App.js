@@ -77,6 +77,9 @@ function App() {
         loggedin={loggedin}
         setLoggedin={setLoggedin}
         setUser={setUser}
+        user={user}
+        password={password}
+        setPassword={setPassword}
         />}/>
 
         <Route exact path = "/login" 
