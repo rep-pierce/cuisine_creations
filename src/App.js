@@ -24,7 +24,7 @@ function App() {
             .then(setUsers)
   }, [])  
   const [rateRecipes, setRateRecipes] = useState([])
-  const [ifRecipes, setIfRecipes] = useState([])
+  
 
   
   
