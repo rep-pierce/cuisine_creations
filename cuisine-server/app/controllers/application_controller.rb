@@ -1,3 +1,4 @@
+require 'pry'
 class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
 
@@ -77,5 +78,20 @@ class ApplicationController < Sinatra::Base
       recipe_ingredients = Recipe.find(params[:id]).joinirs.map {|joinir| joinir.ingredient}
       recipe_ingredients.to_json
     end
+
+    get '/byrating' do
+      ayo = Recipe.by_rating
+      ayo.to_json
+    end
+   
+    patch '/users/:id' do
+      user = User.find(params[:id])
+      user.update(
+        password: params[:password]
+      )
+      user.to_json
+    end 
+
+    
     
   end

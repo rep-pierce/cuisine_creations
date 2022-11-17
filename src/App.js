@@ -9,24 +9,60 @@ import './App.css';
 function App() {
   const [search, setSearch] = useState('')
   const [filterState, setFilterState] = useState('None')
-  
-
-
-  
   const [recipes, setRecipes] = useState([])
+  const [rateRecipes, setRateRecipes] = useState([])
+  const [ifRecipes, setIfRecipes] = useState([])
+
+  
+  
 
   useEffect(() => {
     fetch('http://localhost:9292/recipes')
       .then(r => r.json())
       .then(setRecipes)
   }, [])
+  useEffect(() => {
+    fetch('http://localhost:9292/byrating')
+      .then(r => r.json())
+      .then(setRateRecipes)
+  }, [])
+
+    const filteringRecipes = recipes.filter((recipe)=> {
+      return recipe.name.toLowerCase().includes(search.toLowerCase())
+   })
+
+   const filteringRateRecipes = rateRecipes.filter((recipe)=> {
+    return recipe.name.toLowerCase().includes(search.toLowerCase())
+ })
+
+   function filteredRecipes() {
+    if (filterState === "None") {
+      return filteringRecipes
+    }
+    else {
+      return filteringRateRecipes
+    }
+  };
+
+ 
+  
+    
+
+  
+  
 
   return (
     <div className="App">
       <Routes>
         <Route exact path = "/" 
         element={<HomePage
-        recipes={recipes}
+        recipes={filteredRecipes()}
+        search={search}
+        setSearch={setSearch}
+        filterState={filterState}
+        setFilterState={setFilterState}
+        
+        
         />}/>
         <Route exact path = "/login" element={<LoginPage />}/>
         <Route exact path = "/recipe" element={<Recipepage />}/>

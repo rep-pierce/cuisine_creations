@@ -15,5 +15,10 @@ class Recipe < ActiveRecord::Base
         self.ratings.average(:rate).to_f
     end
 
+    def self.by_rating
+        all.sort_by(&:get_rating).reverse
+    end
+
+
 
 end
