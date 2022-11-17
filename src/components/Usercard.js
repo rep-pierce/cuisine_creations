@@ -4,8 +4,8 @@ function UserCard ({user, password, setPassword}) {
     
 
     function handleSubmit(e) {
-        e.preventDefualt()
-        fetch(`http://localhost:9292/Users/${user.id}`, {
+        e.preventDefault()
+        fetch(`http://localhost:9292/users/${user.id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
