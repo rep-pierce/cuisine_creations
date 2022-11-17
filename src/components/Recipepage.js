@@ -16,6 +16,7 @@ function Recipepage ({sRecipe}) {
     return(
     <div>
         <RecipeCard name={sRecipe.name} id={sRecipe.id} />
+        <h2>Steps</h2>
         {createSteps()}
 
 

@@ -30,7 +30,7 @@ function HomePage({recipes, loggedin, setLoggedin, setUser, search, setSearch, f
         <SearchBar search={search} setSearch={setSearch} filterState={filterState} setFilterState={setFilterState} />
         {createRecipeCards()}
         <button onClick={handleList}>Click To See List</button>
-        {loggedin ? <UserCard user={user} password={password} setPassword={setPassword}/> : null}
+        {loggedin ? <UserCard user={user} password={password} setPassword={setPassword} setLoggedin={setLoggedin} setUser={setUser}/> : null}
     </div>
     )
 

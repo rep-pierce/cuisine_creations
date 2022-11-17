@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-function UserCard ({user, password, setPassword}) {
+function UserCard ({user, password, setPassword, setLoggedin, setUser}) {
     
 
     function handleSubmit(e) {
@@ -16,6 +16,16 @@ function UserCard ({user, password, setPassword}) {
             }),
           })
             
+    }
+    function handleClick() {
+        fetch(`http://localhost:9292/users/${user.id}`,{
+            method: "DELETE",
+        })
+        setLoggedin(false)
+        setUser({})
+        window.location.href=window.location.href
+    
+        
     }
 
     return(
@@ -34,6 +44,7 @@ function UserCard ({user, password, setPassword}) {
             
             <button type="submit">Submit</button>
         </form>
+        <button onClick={handleClick}>Delete User</button>
     </div>
     )
 }
