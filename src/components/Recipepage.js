@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import RecipeCard from './Recipecard';
 import StepsCard from './Stepscard';
 
-function Recipepage ({recipe}) {
+function Recipepage ({sRecipe}) {
     const [steps, setSteps] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:9292/recipes/${recipe.id}/steps`)
+        fetch(`http://localhost:9292/recipes/${sRecipe.id}/steps`)
           .then(r => r.json())
           .then(setSteps)
       }, [])
@@ -15,7 +15,7 @@ function Recipepage ({recipe}) {
 
     return(
     <div>
-        <RecipeCard name={recipe.name} id={recipe.id} />
+        <RecipeCard name={sRecipe.name} id={sRecipe.id} />
         {createSteps()}
 
 

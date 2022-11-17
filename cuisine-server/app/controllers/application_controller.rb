@@ -99,6 +99,11 @@ class ApplicationController < Sinatra::Base
       user.to_json
     end 
 
+    get '/recipes/:id/steps' do
+      steps = Recipe.find(params[:id]).steps
+      steps.to_json
+    end
+
     
     
   end

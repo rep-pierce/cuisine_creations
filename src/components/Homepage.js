@@ -4,13 +4,13 @@ import RecipeCard from "./Recipecard"
 import SearchBar from "./Searchbar";
 import UserCard from "./Usercard";
 
-function HomePage({recipes, loggedin, setLoggedin, setUser, search, setSearch, filterState, setFilterState, user, password, setPassword }){
+function HomePage({recipes, loggedin, setLoggedin, setUser, search, setSearch, filterState, setFilterState, user, password, setPassword,  setsRecipe }){
     const navigate = useNavigate()
 
 
 
     function createRecipeCards() {
-        return recipes.map(recipe => <RecipeCard key={recipe.id} name={recipe.name} id={recipe.id} /> )
+        return recipes.map(recipe => <RecipeCard key={recipe.id} name={recipe.name} id={recipe.id} setsRecipe={setsRecipe} recipe={recipe}/> )
     }
 
     function handleList() {

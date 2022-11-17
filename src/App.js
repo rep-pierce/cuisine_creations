@@ -17,6 +17,7 @@ function App() {
   const [password, setPassword] = useState('')
   const [users, setUsers] = useState([])
   const [loggedin, setLoggedin] = useState(false)
+  const [sRecipe, setsRecipe] = useState([])
 
   useEffect(() => {
     fetch("http://localhost:9292/users")
@@ -80,6 +81,8 @@ function App() {
         user={user}
         password={password}
         setPassword={setPassword}
+        sRecipe={sRecipe}
+        setsRecipe={setsRecipe}
         />}/>
 
         <Route exact path = "/login" 
@@ -101,7 +104,7 @@ function App() {
         
         />}/>
 
-        <Route exact path = "/recipe" element={<Recipepage />}/>
+        <Route exact path = "/recipe" element={<Recipepage sRecipe={sRecipe} setsRecipe={setsRecipe} />}/>
         
         <Route exact path = "/list" 
         element={<ListPage 
