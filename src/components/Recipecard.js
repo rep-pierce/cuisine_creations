@@ -2,9 +2,11 @@ import React,  {useState, useEffect} from 'react';
 import IngredientCard from './Ingredientcard';
 import { useNavigate } from "react-router-dom";
 
-function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList}) {
+function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList, picture, setInRecipe, inRecipe }) {
     const [rating, setRating] = useState(0)
     const [ingredients, setIngredients] = useState([])
+    const [totalCalories, setTotalCalories] = useState(null)
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -12,7 +14,13 @@ function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList
           .then(r => r.json())
           .then(setRating)
       }, [])
-
+    
+    useEffect(() => {
+        fetch(`http://localhost:9292/recipes/${id}/total_calories`)
+            .then(r => r.json())
+            .then(setTotalCalories)
+    }, [])
+    
     useEffect(() => {
       fetch(`http://localhost:9292/recipes/${id}/ingredients`)
         .then(r => r.json())
@@ -20,11 +28,12 @@ function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList
     }, [])
 
     function createIngredientCard() {
-        return ingredients.map(ingredient => <IngredientCard key={ingredient.id} ingredient={ingredient} />)
+        return ingredients.map(ingredient => <IngredientCard key={ingredient.id} ingredientName={ingredient.name} ingredient={ingredient} setInRecipe={setInRecipe} inRecipe={inRecipe}/>)
     }
+    
     function handleClick() {
         setsRecipe(recipe)
-
+        setInRecipe(true)
         navigate('/recipe')
     }
     function handleListAdd(){
@@ -63,6 +72,8 @@ function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList
         <div onClick={handleClick}>
             <h1>Recipe</h1>
             <p>{name}</p>
+            <img src={picture}/>
+            <p>Total Calories: {totalCalories}</p>
             <p>Rating: {rating.toFixed(1)}</p>
             <h2>Ingredients</h2>
             {createIngredientCard()}

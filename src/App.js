@@ -21,7 +21,8 @@ function App() {
   const [rate, setRate] = useState(1)
   const [list, setList] = useState([])
   const [inList, setInList] = useState(false)
-
+  const [inRecipe, setInRecipe] = useState(false)
+  
   useEffect(() => {
     fetch("http://localhost:9292/users")
             .then(r => r.json())
@@ -85,6 +86,8 @@ function App() {
         inList={inList}
         users={users}
         setUsers={setUsers}
+        setInRecipe={setInRecipe}
+        inRecipe={inRecipe}
         />}/>
 
         <Route exact path = "/login" 
@@ -113,6 +116,8 @@ function App() {
         user={user} 
         rate={rate}
         setRate={setRate}
+        setInRecipe={setInRecipe}
+        inRecipe={inRecipe}
         />}/>
         
         <Route exact path = "/list" 

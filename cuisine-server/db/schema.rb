@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_232536) do
   create_table "joinirs", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
+    t.integer "amount"
     t.index ["ingredient_id"], name: "index_joinirs_on_ingredient_id"
     t.index ["recipe_id"], name: "index_joinirs_on_recipe_id"
   end
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_232536) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
+    t.string "picture"
     t.integer "user_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end

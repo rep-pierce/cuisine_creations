@@ -19,4 +19,12 @@ class Recipe < ActiveRecord::Base
         self.joins(:ratings).group(:recipe_id).order("AVG(rate) DESC")
     end
 
+    def ingredient_calories
+        self.joinirs.map {|joinir| joinir.amount * joinir.ingredient.calories}
+    end
+
+    def total_calories
+        self.ingredient_calories.sum
+    end
+
 end

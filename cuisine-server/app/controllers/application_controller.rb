@@ -132,7 +132,16 @@ class ApplicationController < Sinatra::Base
       list = List.where(recipe: params[:id]).where(user: params[:userID])
       list.to_json
     end
-    
+
+    get '/recipes/:id/total_calories' do
+      calories = Recipe.find(params[:id]).total_calories
+      calories.to_json
+    end
+
+    get '/ingredients/:recipeID/amounts' do
+      ingredient_amount = Ingredient.joinirs.find(recipe: params[:recipeID]).amount
+      ingredient_amount.to_json
+    end
 
     
   end

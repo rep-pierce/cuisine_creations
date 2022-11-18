@@ -1,12 +1,12 @@
 import React from "react";
 
-function IngredientCard({ingredient}){
+function IngredientCard({ingredientName, ingredient, setInRecipe, inRecipe}){
 
     return(
     <div>
-        <p>{ingredient.name}</p>
-        <p>calories</p>
-        <p>{ingredient.calories}</p>
+        <p>{ingredientName}</p>
+        { inRecipe ? `calories per gram: ${ingredient.calories}`: null }
+
     </div>
     )
 
