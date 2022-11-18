@@ -13,10 +13,9 @@ function HomePage({
     user, password, setPassword,  setsRecipe, 
     list, setList, users, setUsers, setInRecipe, 
     inRecipe, steps, setSteps, newRecipeName, setNewRecipeName, newRecipePicture, setNewRecipePicture, name, setName, calories, 
-    setCalories, picture, setPicture }){
+    setCalories, picture, setPicture, form, setForm }){
     const navigate = useNavigate()
-    const [form, setForm] = useState(false)
-
+    
 
 
     function createRecipeCards() {
@@ -40,6 +39,9 @@ function HomePage({
     function handleCreateForm(){
         return <CreateIngredient form={form} setForm={setForm} name={name} setName={setName} calories={calories} setCalories={setCalories} picture={picture} setPicture={setPicture} />
     }
+    function handleAllIngredients(){
+        navigate('/ingredients')
+    }
     
     return(
     <div className="Home-page-div">
@@ -49,6 +51,7 @@ function HomePage({
                 {loggedin ? <button className='button'onClick={logOut}>Log Out</button> : <button className='button' onClick={loginNav}>Log In</button>}
                 <button className='button' onClick={handleList}>Click To See List</button>
                 <button className='button' onClick={createForm}>Add Ingredient to the Database</button>
+                <button className='button' onClick={handleAllIngredients}>Click to see All Ingredients</button>
             </span>
         </div>
                 { form ? handleCreateForm() : null }

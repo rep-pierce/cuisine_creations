@@ -4,6 +4,7 @@ import HomePage from "./components/Homepage";
 import LoginPage from "./components/Loginpage";
 import ListPage from "./components/Listpage";
 import Recipepage from "./components/Recipepage";
+import IngredientPage from "./components/Ingredientpage";
 import './App.css';
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
   const [steps, setSteps] = useState([])
   const [newRecipeName, setNewRecipeName] = useState('')
   const [newRecipePicture, setNewRecipePicture] = useState('')
+  const [form, setForm] = useState(false)
+
   
   
   useEffect(() => {
@@ -107,6 +110,8 @@ function App() {
         setNewRecipeName={setNewRecipeName}
         newRecipePicture={newRecipePicture}
         setNewRecipePicture={setNewRecipePicture}
+        form={form}
+        setForm={setForm}
         />}/>
 
         <Route exact path = "/login" 
@@ -149,7 +154,20 @@ function App() {
         setInList={setInList}
         inList={inList}
         />}/>
-      </Routes>
+
+        
+        <Route exact path = "/ingredients"
+        element={<IngredientPage 
+        form={form}
+        setForm={setForm}
+        name={name}
+        setName={setName}
+        calories={calories}
+        setCalories={setCalories}
+        picture={picture}
+        setPicture={setPicture}
+        />}/>
+        </Routes>
     </div>
   );
 }
