@@ -22,6 +22,9 @@ function App() {
   const [list, setList] = useState([])
   const [inList, setInList] = useState(false)
   const [inRecipe, setInRecipe] = useState(false)
+  const [name, setName] = useState('')
+  const [calories, setCalories] = useState(0)
+  const [picture, setPicture] = useState('')
   
   useEffect(() => {
     fetch("http://localhost:9292/users")
@@ -88,6 +91,12 @@ function App() {
         setUsers={setUsers}
         setInRecipe={setInRecipe}
         inRecipe={inRecipe}
+        name={name}
+        setName={setName}
+        calories={calories}
+        setCalories={setCalories}
+        picture={picture}
+        setPicture={setPicture}
         />}/>
 
         <Route exact path = "/login" 

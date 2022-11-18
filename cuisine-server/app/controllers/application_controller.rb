@@ -59,7 +59,7 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/ingredients' do
-      ingredient = Ingredient.create(name:params[:name], calories:params[calories], picture:params[:picture])
+      ingredient = Ingredient.create(name:params[:name], calories:params[:calories], picture:params[:picture])
       ingredient.to_json
     end
 
