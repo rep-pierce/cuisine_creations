@@ -7,12 +7,12 @@ import CreateIngredient from "./Createingredient"
 
 function HomePage({ 
     inList, setInList, recipes, 
-    totalCalories, setTotalCalories, loggedin, 
+    setRecipes, totalCalories, setTotalCalories, loggedin, 
     setLoggedin, setUser, search, 
     setSearch, filterState, setFilterState, 
     user, password, setPassword,  setsRecipe, 
     list, setList, users, setUsers, setInRecipe, 
-    inRecipe, name, setName, calories, 
+    inRecipe, steps, setSteps, newRecipeName, setNewRecipeName, newRecipePicture, setNewRecipePicture, name, setName, calories, 
     setCalories, picture, setPicture }){
     const navigate = useNavigate()
     const [form, setForm] = useState(false)
@@ -49,7 +49,7 @@ function HomePage({
         <div className='Home-list-div'><button className='button' onClick={handleList}>Click To See List</button></div>
         <div className='Home-list-div'><button className='button' onClick={createForm}>Add Ingredient to the Database</button></div>
         { form ? handleCreateForm() : null }
-        <div className="Home-user-div">{loggedin ? <UserCard user={user} password={password} setPassword={setPassword} setLoggedin={setLoggedin} setUser={setUser} users={users} setUsers={setUsers}/> : null}</div>
+        <div className="Home-user-div">{loggedin ? <UserCard user={user} password={password} setPassword={setPassword} setLoggedin={setLoggedin} setUser={setUser} users={users} setUsers={setUsers} newRecipeName={newRecipeName} setNewRecipeName={setNewRecipeName} newRecipePicture={newRecipePicture} setNewRecipePicture={setNewRecipePicture}/> : null}</div>
     </div>
     )
 

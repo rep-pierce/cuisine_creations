@@ -1,7 +1,13 @@
 import React, {useState, useEffect} from 'react';
+import NewRecipeForm from './NewRecipeForm';
 
-function UserCard ({user, password, setPassword, setLoggedin, setUser, users, setUsers}) {
-    
+function UserCard ({user, password, setPassword, setLoggedin, setUser, users, setUsers, newRecipeName, setNewRecipeName, newRecipePicture, setNewRecipePicture, recipes, setRecipes}) {
+    const[btntoggle, setBtntoggle] =useState(false)
+
+    function handleBtnClick() {
+        setBtntoggle(!btntoggle)
+        console.log(btntoggle)
+    }
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -48,6 +54,9 @@ function UserCard ({user, password, setPassword, setLoggedin, setUser, users, se
             <button className='button' type="submit">Submit</button>
         </form>
         <button className='button' onClick={handleClick}>Delete User</button>
+        <button className='button' onClick={handleBtnClick}>{btntoggle ? 'Close Form' : 'Create Recipe' }</button>
+        {btntoggle ? <NewRecipeForm user={user} newRecipeName={newRecipeName} setNewRecipeName={setNewRecipeName} newRecipePicture={newRecipePicture} setNewRecipePicture={setNewRecipePicture} recipes={recipes} setRecipes={setRecipes}/> : null}
+        
     </div>
     )
 }

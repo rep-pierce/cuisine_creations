@@ -18,8 +18,9 @@ class ApplicationController < Sinatra::Base
     # end
 
     post '/recipes' do
-      recipe = Recipe.create(name:params[:name], user:params[:user])
+      recipe = Recipe.create(name:params[:name], user_id:params[:user], picture:params[:picture])
       # joinir = Joinir.create(recipe: recipe.id, ingredient:)
+      recipe.to_json
     end
 
     delete '/recipes/:id' do

@@ -59,6 +59,7 @@
 .Home-recipe-div{
   grid-row: 3 ;
   grid-column: 1;
+  
 }
 
 .Home-search-div{
@@ -110,4 +111,9 @@
   gap: 1px;
   background-color: #ffffff;
   padding: 1px;
+}
+
+.Card-picture{
+  width: 500px;
+  height: 300px;
 }
