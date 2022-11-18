@@ -45,7 +45,7 @@ function NewUserCard ({sUsn, sU, sA, sP, age, username, usersname, password, use
                     <input type="password" name="pass" value={password} onChange={setPassword} />
                 </div>
                 <div>
-                    <input type="submit" />
+                    <input className='button' type="submit" />
                 </div>
             </form>
             <p>You must log in after creating your new user!</p>

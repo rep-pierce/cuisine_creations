@@ -76,7 +76,7 @@
   top: 0;
   padding: 5px;
   grid-column: 5/7;
-  grid-row: 2;
+  grid-row: 3;
   
 }
 .button{
@@ -146,7 +146,9 @@
 
 .Ingredient-form-div{
   grid-row: 2;
-  grid-column: 0;
+  grid-column: 1;
+  width: 400px;
+  border: 2px solid #ff0000
 }
 
 
