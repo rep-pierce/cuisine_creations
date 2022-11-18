@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AllIngredientCard from "./AllIngredientCard";
 import CreateIngredient from "./Createingredient";
 
-function IngredientPage({form, setForm, name, setName, calories, setCalories, picture, setPicture }){
+function IngredientPage({form, setForm, name, setName, calories, setCalories, picture, setPicture, loggedin, recipes, user }){
     const [allIngredients, setAllIngredients] = useState([])
     const navigate = useNavigate()
     useEffect(() => {
@@ -12,7 +12,7 @@ function IngredientPage({form, setForm, name, setName, calories, setCalories, pi
         .then(setAllIngredients)
     }, [form])
     function listIngredients(){
-        return allIngredients.map(ingredient => <AllIngredientCard key={ingredient.id} ingredient={ingredient} />)
+        return allIngredients.map(ingredient => <AllIngredientCard key={ingredient.id} ingredient={ingredient} loggedin={loggedin} recipes={recipes} user={user} />)
     }
     function handleHome(){
         navigate('/')

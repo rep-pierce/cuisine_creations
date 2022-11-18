@@ -144,5 +144,14 @@ class ApplicationController < Sinatra::Base
       ingredient_amount.to_json
     end
 
+    post '/joinirs' do
+      Joinir.create(recipe_id:params[:recipe], ingredient_id:params[:ingredient], amount:params[:amount])
+    end
+
+    get '/joinirs' do
+      joinirs = Joinir.all
+      joinirs.to_json
+    end
+
     
   end

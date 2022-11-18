@@ -22,7 +22,7 @@ function NewUserCard ({sUsn, sU, sA, sP, age, username, usersname, password, use
           sUsn('')
           sU('')
           sP('')
-          //window.location.href=window.location.href
+        //   window.location.href=window.location.href
         }
 
     return(

@@ -37,7 +37,7 @@ function App() {
     fetch("http://localhost:9292/users")
             .then(r => r.json())
             .then(setUsers)
-  }, [])  
+  }, [users])  
   const [rateRecipes, setRateRecipes] = useState([])
   
 
@@ -166,6 +166,9 @@ function App() {
         setCalories={setCalories}
         picture={picture}
         setPicture={setPicture}
+        user={user}
+        recipes={recipes}
+        loggedin={loggedin}
         />}/>
         </Routes>
     </div>

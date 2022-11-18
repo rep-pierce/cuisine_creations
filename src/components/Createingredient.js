@@ -28,15 +28,15 @@ function CreateIngredient({ form, setForm, name, setName, calories, setCalories,
         <div className='Ingredient-form-div'>
         <form onSubmit={handleSubmit}>
             <div>
-                <label>Name: </label>
+                <label>Name:</label>
                 <input type="text" name="name" value={name} onChange={((e) => setName(e.target.value))} />
             </div>
             <div>
-                <label>Calories per Gram: </label>
+                <label>Calories per Gram:</label>
                 <input type="integer" name="calories" value={calories} onChange={((e) => setCalories(e.target.value))} />
             </div>
             <div>
-                <label>Picture: </label>
+                <label>Picture:</label>
                 <input type="text" name="picture" value={picture} onChange={((e) => setPicture(e.target.value))} />
             </div>
             <div>

@@ -31,7 +31,7 @@ function UserCard ({user, password, setPassword, setLoggedin, setUser, users, se
         .then((deletedUser)=> setUsers(users.filter(user => user.id !== deletedUser.id)))
         setLoggedin(false)
         setUser({})
-        window.location.href=window.location.href
+        // window.location.href=window.location.href
     
         
     }
