@@ -25,7 +25,7 @@ function Recipepage ({sRecipe, user, rate, totalCalories, setTotalCalories, setR
 
     return(
     <div>
-        <RecipeCard name={sRecipe.name} id={sRecipe.id} picture={sRecipe.picture} setInRecipe={setInRecipe} inRecipe={inRecipe}/>
+        <RecipeCard user={user} recipe={sRecipe} name={sRecipe.name} id={sRecipe.id} picture={sRecipe.picture} setInRecipe={setInRecipe} inRecipe={inRecipe}/>
         
         <h2>Steps</h2>
         {createSteps()}

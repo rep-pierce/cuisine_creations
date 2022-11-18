@@ -83,7 +83,7 @@ function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList
             <h2>Ingredients</h2>
             {createIngredientCard()}
         </div>
-        {/* { user.id == recipe.user_id ? <button className='button' onClick={deleteRecipe}>Delete your recipe</button> : null} */}
+        { user.id == recipe.user_id ? <button className='button' onClick={deleteRecipe}>Delete your recipe</button> : null}
         <button className='button' onClick={inList? handleDeleteList : handleListAdd}>{inList ? "Remove from List" : "Add to your list!"}</button>
     </div>
     )
