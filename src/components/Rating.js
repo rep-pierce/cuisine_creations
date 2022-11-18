@@ -27,8 +27,8 @@ function Rating ({sRecipe, user, rate, setRate}) {
         setRate(e.target.value)
     }
     return(
-    <div>
-        <form onSubmit={handleSubmit} >
+    <div className='Rating-div'>
+        <form className='Rating-form' onSubmit={handleSubmit} >
             <label><strong>Rate this Recipe</strong></label>
             <select onChange={handleChange}>
                 <option value={1}>1</option>
@@ -38,7 +38,7 @@ function Rating ({sRecipe, user, rate, setRate}) {
                 <option value={5}>5</option>
             </select>
             <div>
-                <input type="submit" />    
+                <input className='button' type="submit" />    
             </div>            
         </form>
         

@@ -23,9 +23,9 @@ function ListPage({user, list, setList, inList, setInList }){
     }
 
     return(
-    <div>
-        {createRecipeCards()}
-        <button onClick={handleHome}>Return to All Recipes</button>
+    <div className='List-page-div'>
+        <div className='List-recipe-div'>{createRecipeCards()}</div>
+        <button className='button' onClick={handleHome}>Return to All Recipes</button>
     </div>
     )
 

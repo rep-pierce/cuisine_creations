@@ -3,7 +3,7 @@ import React from "react";
 function IngredientCard({ingredient}){
 
     return(
-    <div>
+    <div className = 'Ingredient-card'>
         <p>{ingredient.name}</p>
         <p>calories</p>
         <p>{ingredient.calories}</p>
