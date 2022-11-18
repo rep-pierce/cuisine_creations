@@ -46,7 +46,7 @@ function HomePage({
         <div className='Home-login-div'>{loggedin ? <button className='button'onClick={logOut}>Log Out</button> : <button className='button' onClick={loginNav}>Log In</button>}</div>
         <div className ="Home-search-div"><SearchBar search={search} setSearch={setSearch} filterState={filterState} setFilterState={setFilterState} /></div>
         <div className='Home-recipe-div'>{createRecipeCards()}</div>
-        <div className='Home-list-div'><button className='button' onClick={handleList}>Click To See List</button></div>
+        <div><button className='button' onClick={handleList}>Click To See List</button></div>
         <div className='Home-list-div'><button className='button' onClick={createForm}>Add Ingredient to the Database</button></div>
         { form ? handleCreateForm() : null }
         <div className="Home-user-div">{loggedin ? <UserCard user={user} password={password} setPassword={setPassword} setLoggedin={setLoggedin} setUser={setUser} users={users} setUsers={setUsers} newRecipeName={newRecipeName} setNewRecipeName={setNewRecipeName} newRecipePicture={newRecipePicture} setNewRecipePicture={setNewRecipePicture}/> : null}</div>
