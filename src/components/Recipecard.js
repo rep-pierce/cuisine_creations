@@ -68,7 +68,7 @@ function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList
     }
 
     return(
-    <div>
+    <div className='Recipe-card'>
         <div onClick={handleClick}>
             <h1>Recipe</h1>
             <p>{name}</p>
@@ -78,7 +78,7 @@ function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList
             <h2>Ingredients</h2>
             {createIngredientCard()}
         </div>
-        <button onClick={inList? handleDeleteList : handleListAdd}>{inList ? "Remove from List" : "Add to your list!"}</button>
+        <button className='button' onClick={inList? handleDeleteList : handleListAdd}>{inList ? "Remove from List" : "Add to your list!"}</button>
     </div>
     )
 }

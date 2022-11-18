@@ -31,12 +31,13 @@ function UserCard ({user, password, setPassword, setLoggedin, setUser, users, se
     }
 
     return(
-    <div className ="userCard">
-        <p>Name:{user.name}</p>
-        <p>Age:{user.age}</p>
-        <p>Username:{user.username}</p>
+    <div className ="User-card-div">
+        <h3>Profile</h3>
+        <p>Name: {user.name}</p>
+        <p>Age: {user.age}</p>
+        <p>Username: {user.username}</p>
         <form onSubmit={handleSubmit}>
-            <label>Change Password</label>
+            <label>Change Password:</label>
                 <input
                 value = {password}
                 type ="text"
@@ -44,9 +45,9 @@ function UserCard ({user, password, setPassword, setLoggedin, setUser, users, se
                 onChange={(e)=> setPassword(e.target.value)}
                 />
             
-            <button type="submit">Submit</button>
+            <button className='button' type="submit">Submit</button>
         </form>
-        <button onClick={handleClick}>Delete User</button>
+        <button className='button' onClick={handleClick}>Delete User</button>
     </div>
     )
 }

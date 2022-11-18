@@ -16,8 +16,8 @@ function LoginCard ({sU, sP, setLoggedin, setUser, username, password, setUserna
     })}
     
     return(
-    <div>
-        <form onSubmit={handleSubmit}>
+    <div className='Login-card-div'>
+        <form className='Login-card-form'onSubmit={handleSubmit}>
             <div>
                 <label>Username:</label>
                 <input type="text" name="uname" value={username} onChange={setUsername} />

@@ -26,12 +26,12 @@ function HomePage({ inList, setInList, recipes, totalCalories, setTotalCalories,
     }
     
     return(
-    <div>
-        {loggedin ? <button onClick={logOut}>Log Out</button> : <button onClick={loginNav}>Log In</button>}
-        <SearchBar search={search} setSearch={setSearch} filterState={filterState} setFilterState={setFilterState} />
-        {createRecipeCards()}
-        <button onClick={handleList}>Click To See List</button>
-        {loggedin ? <UserCard user={user} password={password} setPassword={setPassword} setLoggedin={setLoggedin} setUser={setUser} users={users} setUsers={setUsers}/> : null}
+    <div className="Home-page-div">
+        <div className='Home-login-div'>{loggedin ? <button className='button'onClick={logOut}>Log Out</button> : <button className='button' onClick={loginNav}>Log In</button>}</div>
+        <div className ="Home-search-div"><SearchBar search={search} setSearch={setSearch} filterState={filterState} setFilterState={setFilterState} /></div>
+        <div className='Home-recipe-div'>{createRecipeCards()}</div>
+        <div className='Home-list-div'><button className='button' onClick={handleList}>Click To See List</button></div>
+        <div className="Home-user-div">{loggedin ? <UserCard user={user} password={password} setPassword={setPassword} setLoggedin={setLoggedin} setUser={setUser} users={users} setUsers={setUsers}/> : null}</div>
     </div>
     )
 

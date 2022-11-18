@@ -30,7 +30,7 @@ function Recipepage ({sRecipe, user, rate, totalCalories, setTotalCalories, setR
         <h2>Steps</h2>
         {createSteps()}
         <Rating sRecipe={sRecipe} user={user} rate={rate} setRate={setRate}/>
-        <button onClick={handleHome}>Return to Homepage</button>
+        <button className='button' onClick={handleHome}>Return to Homepage</button>
 
     </div>
     )

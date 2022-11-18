@@ -41,15 +41,15 @@ function LoginPage({loggedin, setLoggedin, setUser, setUsersname, setUsername, s
     }
 
     function handleHome(){
-        setLoggedin('no')
+        
         navigate('/')
     }
 
     return(
-    <div>
-        <button onClick={handleLogIn}>Log In</button>
-        <button onClick={handleNewUser}>Create Account</button>
-        <button onClick={handleHome}>Return to Homepage</button>
+    <div className='Login-page-div'>
+        <button className='button' onClick={handleLogIn}>Log In</button>
+        <button className='button' onClick={handleNewUser}>Create Account</button>
+        <button className='button' onClick={handleHome}>Return to Homepage</button>
         {loggedin ? null : handleDisplay()}
         {loggedin ? <p>Logged in Successfully!</p> : <p>Not Logged In</p>}
     </div>

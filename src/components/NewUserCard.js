@@ -26,7 +26,7 @@ function NewUserCard ({sUsn, sU, sA, sP, age, username, usersname, password, use
         }
 
     return(
-        <div>
+        <div className="New-user-card">
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Name:</label>
