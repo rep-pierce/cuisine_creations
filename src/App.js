@@ -22,6 +22,10 @@ function App() {
   const [list, setList] = useState([])
   const [inList, setInList] = useState(false)
   const [inRecipe, setInRecipe] = useState(false)
+  const [steps, setSteps] = useState([])
+  const [newRecipeName, setNewRecipeName] = useState('')
+  const [newRecipePicture, setNewRecipePicture] = useState('')
+  
   
   useEffect(() => {
     fetch("http://localhost:9292/users")
@@ -38,12 +42,12 @@ function App() {
     fetch('http://localhost:9292/recipes')
       .then(r => r.json())
       .then(setRecipes)
-  }, [])
+  }, [recipes])
   useEffect(() => {
     fetch('http://localhost:9292/byrating')
       .then(r => r.json())
       .then(setRateRecipes)
-  }, [])
+  }, [recipes])
 
     const filteringRecipes = recipes.filter((recipe)=> {
       return recipe.name.toLowerCase().includes(search.toLowerCase())
@@ -88,6 +92,12 @@ function App() {
         setUsers={setUsers}
         setInRecipe={setInRecipe}
         inRecipe={inRecipe}
+        steps={steps}
+        setSteps={setSteps}
+        newRecipeName={newRecipeName}
+        setNewRecipeName={setNewRecipeName}
+        newRecipePicture={newRecipePicture}
+        setNewRecipePicture={setNewRecipePicture}
         />}/>
 
         <Route exact path = "/login" 

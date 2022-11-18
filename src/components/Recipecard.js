@@ -72,7 +72,7 @@ function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList
         <div onClick={handleClick}>
             <h1>Recipe</h1>
             <p>{name}</p>
-            <img src={picture}/>
+            <img className='Card-picture'src={picture}/>
             <p>Total Calories: {totalCalories}</p>
             <p>Rating: {rating.toFixed(1)}</p>
             <h2>Ingredients</h2>
