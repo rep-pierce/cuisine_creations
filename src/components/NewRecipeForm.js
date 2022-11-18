@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 function NewRecipeForm({user, newRecipeName, setNewRecipeName, newRecipePicture, setNewRecipePicture, recipes, setRecipes}){
-    console.log(newRecipeName)
-    console.log(user.id)
+    
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -20,9 +19,9 @@ function NewRecipeForm({user, newRecipeName, setNewRecipeName, newRecipePicture,
         })
         .then((r) => r.json())
         .then(setRecipes([...recipes,newRecipe]))
+        alert('You made a new Recipe!')
         setNewRecipeName('')
         setNewRecipePicture('')
-        alert('You made a new Recipe!')
         
 
     }
