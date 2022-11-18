@@ -47,12 +47,12 @@ function HomePage({
     <div className="Home-page-div">
         <div className= 'btn-group'>
             <span>
-                <SearchBar search={search} setSearch={setSearch} filterState={filterState} setFilterState={setFilterState} />
                 {loggedin ? <button className='button'onClick={logOut}>Log Out</button> : <button className='button' onClick={loginNav}>Log In</button>}
                 <button className='button' onClick={handleList}>Click To See List</button>
                 <button className='button' onClick={createForm}>Add Ingredient to the Database</button>
                 <button className='button' onClick={handleAllIngredients}>Click to see All Ingredients</button>
             </span>
+                <SearchBar search={search} setSearch={setSearch} filterState={filterState} setFilterState={setFilterState} />
         </div>
                 { form ? handleCreateForm() : null }
         <div className='Home-recipe-div'>{createRecipeCards()}</div>

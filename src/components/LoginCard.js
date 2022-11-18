@@ -27,7 +27,7 @@ function LoginCard ({sU, sP, setLoggedin, setUser, username, password, setUserna
                 <input type="password" name="pass" value={password} onChange={setPassword} />
             </div>
             <div>
-                <input type="submit" />
+                <input className='button' type="submit" />
             </div>
         </form>
         
