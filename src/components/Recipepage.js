@@ -3,7 +3,6 @@ import RecipeCard from './Recipecard';
 import StepsCard from './Stepscard';
 import Rating from './Rating'
 import { useNavigate } from "react-router-dom";
-import IngredientCard from "./Ingredientcard"
 
 function Recipepage ({sRecipe, user, rate, totalCalories, setTotalCalories, setRate, setInRecipe, inRecipe}) {
     const [steps, setSteps] = useState([])
@@ -16,12 +15,6 @@ function Recipepage ({sRecipe, user, rate, totalCalories, setTotalCalories, setR
           .then(setSteps)
       }, [])
 
-    // useEffect(() => {
-    //   fetch(`http://localhost:9292/recipes/${sRecipe.id}/ingredients`)
-    //     .then(r => r.json())
-    //     .then(setIngredients)
-    // }, [])
-
     function createSteps() {
       return steps.map(step => <StepsCard key={step.id} step={step} />)
     }
@@ -29,9 +22,6 @@ function Recipepage ({sRecipe, user, rate, totalCalories, setTotalCalories, setR
       setInRecipe(false)
       navigate('/')
     }
-    // function handleIngredients(){
-    //   return ingredients.map(ingredient => <IngredientCard ingredientName={ingredient.name} ingredient={ingredient} />)
-    // }
 
     return(
     <div>
