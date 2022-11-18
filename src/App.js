@@ -137,6 +137,8 @@ function App() {
         setRate={setRate}
         setInRecipe={setInRecipe}
         inRecipe={inRecipe}
+        setRecipes={setRecipes}
+        recipes={recipes}
         />}/>
         
         <Route exact path = "/list" 

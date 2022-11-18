@@ -2,7 +2,7 @@ import React,  {useState, useEffect} from 'react';
 import IngredientCard from './Ingredientcard';
 import { useNavigate } from "react-router-dom";
 
-function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList, picture, setInRecipe, inRecipe }) {
+function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList, picture, setInRecipe, inRecipe, setRecipes, recipes }) {
     const [rating, setRating] = useState(0)
     const [ingredients, setIngredients] = useState([])
     const [totalCalories, setTotalCalories] = useState(null)
@@ -69,7 +69,12 @@ function RecipeCard ({ name, id, setsRecipe, recipe, user, setList, list, inList
    
 
     function deleteRecipe(){
+        fetch(`http://localhost:9292/recipes/${recipe.id}`,{
+            method: "DELETE",
+        })
+        
 
+        alert("You have deleted this from the database!")
     }
 
     return(

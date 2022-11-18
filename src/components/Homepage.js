@@ -20,7 +20,7 @@ function HomePage({
 
 
     function createRecipeCards() {
-        return recipes.map(recipe => <RecipeCard key={recipe.id} inList={inList} user={user} picture={recipe.picture} name={recipe.name} id={recipe.id} setsRecipe={setsRecipe} recipe={recipe} list={list} setList={setList} setInRecipe={setInRecipe} inRecipe={inRecipe}/> )
+        return recipes.map(recipe => <RecipeCard setRecipes={setRecipes} recipes={recipes} key={recipe.id} inList={inList} user={user} picture={recipe.picture} name={recipe.name} id={recipe.id} setsRecipe={setsRecipe} recipe={recipe} list={list} setList={setList} setInRecipe={setInRecipe} inRecipe={inRecipe}/> )
     }
 
     function handleList() {

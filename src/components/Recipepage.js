@@ -4,7 +4,7 @@ import StepsCard from './Stepscard';
 import Rating from './Rating'
 import { useNavigate } from "react-router-dom";
 
-function Recipepage ({sRecipe, user, rate, totalCalories, setTotalCalories, setRate, setInRecipe, inRecipe}) {
+function Recipepage ({sRecipe, user, rate, totalCalories, setTotalCalories, setRate, setInRecipe, inRecipe, setRecipes, recipes}) {
     const [steps, setSteps] = useState([])
     // const [ingredients, setIngredients] = useState([])
     const navigate = useNavigate()
@@ -25,7 +25,7 @@ function Recipepage ({sRecipe, user, rate, totalCalories, setTotalCalories, setR
 
     return(
     <div>
-        <RecipeCard user={user} recipe={sRecipe} name={sRecipe.name} id={sRecipe.id} picture={sRecipe.picture} setInRecipe={setInRecipe} inRecipe={inRecipe}/>
+        <RecipeCard user={user} setRecipes={setRecipes} recipes={recipes} recipe={sRecipe} name={sRecipe.name} id={sRecipe.id} picture={sRecipe.picture} setInRecipe={setInRecipe} inRecipe={inRecipe}/>
         
         <h2>Steps</h2>
         {createSteps()}
