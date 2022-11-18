@@ -25,7 +25,7 @@ function CreateIngredient({ form, setForm, name, setName, calories, setCalories,
         }
 
     return(
-        <div >
+        <div className='Ingredient-form-div'>
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Name:</label>
@@ -40,7 +40,7 @@ function CreateIngredient({ form, setForm, name, setName, calories, setCalories,
                 <input type="text" name="picture" value={picture} onChange={((e) => setPicture(e.target.value))} />
             </div>
             <div>
-                <input type="submit" />
+                <input className='button' type="submit" />
             </div>
         </form>
     </div>
